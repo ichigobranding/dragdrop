@@ -1,9 +1,15 @@
+import { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import "./App.css";
 function App() {
+  const [items] = useState(["item0", "item1", "item2"]);
   const onDragEnd = (result) => {
     console.log(result.source.index);
     console.log(result.destination.index);
+    const removed = items.splice(result.source.index, 1); //スタート地点を消す
+    console.log(removed[0]);
+    const check = items.splice(result.destination.index, 0, removed[0]); // エンド地点に消したものを追加
+    console.log(check);
   }
   return (
     <div className="dragDropArea">
@@ -19,7 +25,7 @@ function App() {
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
                 >
-                  item0
+                  {items[0]}
                 </div>
               )}
             </Draggable>
@@ -38,7 +44,7 @@ function App() {
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
                 >
-                  item1
+                 {items[1]}
                 </div>
               )}
             </Draggable>
@@ -57,7 +63,7 @@ function App() {
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
                 >
-                  item2
+                 {items[2]}
                 </div>
               )}
             </Draggable>
