@@ -2,7 +2,7 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import "./App.css";
 function App() {
   const onDragEnd = (result) => {
-    console.log(result.source.index);
+    //console.log(result.source.index);
     console.log(result.destination.index);
   }
   return (
