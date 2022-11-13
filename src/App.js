@@ -2,13 +2,13 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import "./App.css";
 function App() {
   const onDragEnd = (result) => {
-    //console.log(result.source.index);
+    console.log(result.source.index);
     console.log(result.destination.index);
   }
   return (
     <div className="dragDropArea">
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="droppable">
+        <Droppable droppableId="item0">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
             <Draggable draggableId="item0" index={0}>
@@ -27,7 +27,7 @@ function App() {
             </div>
           )}
         </Droppable>
-        <Droppable droppableId="droppable">
+        <Droppable droppableId="item1">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
             <Draggable draggableId="item1" index={1}>
@@ -46,7 +46,7 @@ function App() {
             </div>
           )}
         </Droppable>
-        <Droppable droppableId="droppable">
+        <Droppable droppableId="item2">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
             <Draggable draggableId="item2" index={2}>
